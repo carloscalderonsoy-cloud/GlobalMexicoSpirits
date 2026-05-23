@@ -1190,53 +1190,220 @@
     <aside class="hero-visual" aria-hidden="true">
       <svg class="botanical" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <linearGradient id="goldStroke" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%"  stop-color="#B8893A" stop-opacity="0.85"/>
-            <stop offset="60%" stop-color="#B8893A" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#B8893A" stop-opacity="0.05"/>
-          </linearGradient>
-          <linearGradient id="goldStrokeSoft" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%"  stop-color="#B8893A" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#B8893A" stop-opacity="0.04"/>
-          </linearGradient>
+          <radialGradient id="warmGlow" cx="52%" cy="64%" r="50%" gradientUnits="objectBoundingBox">
+            <stop offset="0%"  stop-color="#B8893A" stop-opacity="0.20"/>
+            <stop offset="50%" stop-color="#C4561A" stop-opacity="0.07"/>
+            <stop offset="100%" stop-color="#B8893A" stop-opacity="0"/>
+          </radialGradient>
+          <pattern id="grain" width="3" height="3" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="0.4" fill="rgba(247,241,232,0.045)"/>
+          </pattern>
         </defs>
-        <g fill="none" stroke="url(#goldStroke)" stroke-width="1.1" stroke-linecap="round">
-          <g transform="translate(300 540)">
-            <path d="M0 0 L0 -420"/>
-            <path d="M0 0 L120 -400"/>
-            <path d="M0 0 L-120 -400"/>
-            <path d="M0 0 L230 -340"/>
-            <path d="M0 0 L-230 -340"/>
-            <path d="M0 0 L320 -240"/>
-            <path d="M0 0 L-320 -240"/>
-            <path d="M0 0 L380 -110"/>
-            <path d="M0 0 L-380 -110"/>
-            <path d="M0 0 L400 30"/>
-            <path d="M0 0 L-400 30"/>
-            <path d="M0 -10 C 30 -160 70 -240 110 -380" stroke-width="0.9"/>
-            <path d="M0 -10 C -30 -160 -70 -240 -110 -380" stroke-width="0.9"/>
-            <path d="M0 -10 C 80 -140 180 -240 220 -320" stroke-width="0.9"/>
-            <path d="M0 -10 C -80 -140 -180 -240 -220 -320" stroke-width="0.9"/>
-            <path d="M0 -10 C 170 -120 270 -180 320 -220" stroke-width="0.9"/>
-            <path d="M0 -10 C -170 -120 -270 -180 -320 -220" stroke-width="0.9"/>
-            <circle cx="0" cy="0" r="6" fill="#B8893A" stroke="none" opacity="0.85"/>
-            <circle cx="0" cy="0" r="22" stroke-width="0.6" opacity="0.55"/>
-            <circle cx="0" cy="0" r="46" stroke-width="0.4" opacity="0.32"/>
+
+        <!-- ambient glow + grain -->
+        <rect width="600" height="900" fill="url(#warmGlow)"/>
+        <rect width="600" height="900" fill="url(#grain)"/>
+
+        <!-- plant: center at (310, 595) -->
+        <g transform="translate(310,595)" fill="none" stroke="#B8893A" stroke-linecap="round" stroke-linejoin="round">
+
+          <!-- ── BACK LEAVES ── drawn first, lowest opacity -->
+
+          <!-- up, 0° -->
+          <g transform="rotate(0)" opacity="0.22">
+            <path d="M0,0 C-14,-48 -18,-122 -12,-214 C-7,-290 -3,-336 0,-360 C3,-336 7,-290 12,-214 C18,-122 14,-48 0,0Z"
+                  fill="rgba(184,137,58,0.04)" stroke-width="0.9"/>
+            <line x1="0" y1="0" x2="0" y2="-356" stroke-width="0.5" opacity="0.6"/>
           </g>
+
+          <!-- up-left, -22° -->
+          <g transform="rotate(-22)" opacity="0.20">
+            <path d="M0,0 C-13,-44 -17,-112 -11,-196 C-7,-266 -2,-308 0,-330 C2,-308 7,-266 11,-196 C17,-112 13,-44 0,0Z"
+                  fill="rgba(184,137,58,0.03)" stroke-width="0.85"/>
+            <line x1="0" y1="0" x2="0" y2="-326" stroke-width="0.5" opacity="0.5"/>
+          </g>
+
+          <!-- up-right, +18° -->
+          <g transform="rotate(18)" opacity="0.20">
+            <path d="M0,0 C-13,-44 -17,-112 -11,-196 C-7,-266 -2,-308 0,-330 C2,-308 7,-266 11,-196 C17,-112 13,-44 0,0Z"
+                  fill="rgba(184,137,58,0.03)" stroke-width="0.85"/>
+            <line x1="0" y1="0" x2="0" y2="-326" stroke-width="0.5" opacity="0.5"/>
+          </g>
+
+          <!-- upper-right, +50° -->
+          <g transform="rotate(50)" opacity="0.22">
+            <path d="M0,0 C-13,-46 -17,-118 -12,-206 C-7,-280 -3,-322 0,-346 C3,-322 7,-280 12,-206 C17,-118 13,-46 0,0Z"
+                  fill="rgba(184,137,58,0.04)" stroke-width="0.9"/>
+            <line x1="0" y1="0" x2="0" y2="-342" stroke-width="0.5" opacity="0.55"/>
+          </g>
+
+          <!-- upper-left, -50° -->
+          <g transform="rotate(-50)" opacity="0.22">
+            <path d="M0,0 C-13,-46 -17,-118 -12,-206 C-7,-280 -3,-322 0,-346 C3,-322 7,-280 12,-206 C17,-118 13,-46 0,0Z"
+                  fill="rgba(184,137,58,0.04)" stroke-width="0.9"/>
+            <line x1="0" y1="0" x2="0" y2="-342" stroke-width="0.5" opacity="0.55"/>
+          </g>
+
+          <!-- ── MID LEAVES ── -->
+
+          <!-- right, +78° -->
+          <g transform="rotate(78)" opacity="0.42">
+            <path d="M0,0 C-16,-56 -21,-142 -15,-252 C-9,-330 -4,-380 0,-410 C4,-380 9,-330 15,-252 C21,-142 16,-56 0,0Z"
+                  fill="rgba(184,137,58,0.05)" stroke-width="1.0"/>
+            <line x1="0" y1="0" x2="0" y2="-406" stroke-width="0.6" opacity="0.68"/>
+            <path d="M13,-218 L21,-230 L13,-242" stroke-width="0.8" fill="none" opacity="0.72"/>
+            <path d="M12,-292 L19,-304 L12,-316" stroke-width="0.7" fill="none" opacity="0.60"/>
+            <line x1="0" y1="-410" x2="0" y2="-428" stroke-width="1.1" opacity="0.80"/>
+          </g>
+
+          <!-- left, -78° -->
+          <g transform="rotate(-78)" opacity="0.42">
+            <path d="M0,0 C-16,-56 -21,-142 -15,-252 C-9,-330 -4,-380 0,-410 C4,-380 9,-330 15,-252 C21,-142 16,-56 0,0Z"
+                  fill="rgba(184,137,58,0.05)" stroke-width="1.0"/>
+            <line x1="0" y1="0" x2="0" y2="-406" stroke-width="0.6" opacity="0.68"/>
+            <path d="M13,-218 L21,-230 L13,-242" stroke-width="0.8" fill="none" opacity="0.72"/>
+            <path d="M12,-292 L19,-304 L12,-316" stroke-width="0.7" fill="none" opacity="0.60"/>
+            <line x1="0" y1="-410" x2="0" y2="-428" stroke-width="1.1" opacity="0.80"/>
+          </g>
+
+          <!-- ── FRONT LEAVES ── most detail, highest opacity, drawn last (on top) -->
+
+          <!-- front-right, +108° -->
+          <g transform="rotate(108)" opacity="0.62">
+            <path d="M0,0 C-18,-62 -23,-158 -16,-278 C-10,-358 -4,-410 0,-442 C4,-410 10,-358 16,-278 C23,-158 18,-62 0,0Z"
+                  fill="rgba(184,137,58,0.07)" stroke-width="1.1"/>
+            <line x1="0" y1="0" x2="0" y2="-438" stroke-width="0.7" opacity="0.76"/>
+            <!-- teeth: outer edge -->
+            <path d="M15,-166 L24,-180 L15,-194" stroke-width="0.9" fill="none" opacity="0.86"/>
+            <path d="M14,-238 L23,-252 L14,-266" stroke-width="0.9" fill="none" opacity="0.78"/>
+            <path d="M13,-313 L21,-327 L13,-341" stroke-width="0.8" fill="none" opacity="0.68"/>
+            <path d="M11,-382 L18,-396 L11,-410" stroke-width="0.7" fill="none" opacity="0.55"/>
+            <!-- teeth: inner edge -->
+            <path d="M-14,-188 L-23,-202 L-14,-216" stroke-width="0.8" fill="none" opacity="0.65"/>
+            <path d="M-12,-266 L-21,-280 L-12,-294" stroke-width="0.7" fill="none" opacity="0.55"/>
+            <!-- concave cross-sections (leaf channel) -->
+            <path d="M-18,-44 Q0,-36 18,-44" stroke-width="0.5" fill="none" opacity="0.28"/>
+            <path d="M-20,-90 Q0,-81 20,-90" stroke-width="0.45" fill="none" opacity="0.22"/>
+            <path d="M-21,-136 Q0,-127 21,-136" stroke-width="0.4" fill="none" opacity="0.17"/>
+            <!-- terminal spine -->
+            <line x1="0" y1="-442" x2="0" y2="-466" stroke-width="1.3" opacity="0.95"/>
+          </g>
+
+          <!-- front-left, -110° -->
+          <g transform="rotate(-110)" opacity="0.62">
+            <path d="M0,0 C-18,-62 -23,-158 -16,-278 C-10,-358 -4,-410 0,-442 C4,-410 10,-358 16,-278 C23,-158 18,-62 0,0Z"
+                  fill="rgba(184,137,58,0.07)" stroke-width="1.1"/>
+            <line x1="0" y1="0" x2="0" y2="-438" stroke-width="0.7" opacity="0.76"/>
+            <path d="M15,-166 L24,-180 L15,-194" stroke-width="0.9" fill="none" opacity="0.86"/>
+            <path d="M14,-238 L23,-252 L14,-266" stroke-width="0.9" fill="none" opacity="0.78"/>
+            <path d="M13,-313 L21,-327 L13,-341" stroke-width="0.8" fill="none" opacity="0.68"/>
+            <path d="M11,-382 L18,-396 L11,-410" stroke-width="0.7" fill="none" opacity="0.55"/>
+            <path d="M-14,-188 L-23,-202 L-14,-216" stroke-width="0.8" fill="none" opacity="0.65"/>
+            <path d="M-12,-266 L-21,-280 L-12,-294" stroke-width="0.7" fill="none" opacity="0.55"/>
+            <path d="M-18,-44 Q0,-36 18,-44" stroke-width="0.5" fill="none" opacity="0.28"/>
+            <path d="M-20,-90 Q0,-81 20,-90" stroke-width="0.45" fill="none" opacity="0.22"/>
+            <path d="M-21,-136 Q0,-127 21,-136" stroke-width="0.4" fill="none" opacity="0.17"/>
+            <line x1="0" y1="-442" x2="0" y2="-466" stroke-width="1.3" opacity="0.95"/>
+          </g>
+
+          <!-- lower-right, +140° (main statement leaf) -->
+          <g transform="rotate(140)" opacity="0.74">
+            <path d="M0,0 C-19,-65 -25,-165 -17,-290 C-11,-370 -5,-422 0,-456 C5,-422 11,-370 17,-290 C25,-165 19,-65 0,0Z"
+                  fill="rgba(184,137,58,0.09)" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="0" y2="-451" stroke-width="0.75" opacity="0.82"/>
+            <path d="M16,-156 L27,-172 L16,-188" stroke-width="1.0" fill="none" opacity="0.90"/>
+            <path d="M15,-226 L26,-242 L15,-258" stroke-width="1.0" fill="none" opacity="0.84"/>
+            <path d="M14,-300 L24,-316 L14,-332" stroke-width="0.9" fill="none" opacity="0.74"/>
+            <path d="M12,-372 L20,-388 L12,-404" stroke-width="0.8" fill="none" opacity="0.62"/>
+            <path d="M-16,-178 L-26,-194 L-16,-210" stroke-width="0.9" fill="none" opacity="0.74"/>
+            <path d="M-14,-254 L-24,-270 L-14,-286" stroke-width="0.8" fill="none" opacity="0.64"/>
+            <path d="M-12,-330 L-20,-346 L-12,-362" stroke-width="0.7" fill="none" opacity="0.54"/>
+            <path d="M-17,-44 Q0,-35 17,-44" stroke-width="0.55" fill="none" opacity="0.34"/>
+            <path d="M-19,-88 Q0,-78 19,-88" stroke-width="0.50" fill="none" opacity="0.27"/>
+            <path d="M-21,-133 Q0,-123 21,-133" stroke-width="0.45" fill="none" opacity="0.21"/>
+            <path d="M-21,-178 Q0,-168 21,-178" stroke-width="0.40" fill="none" opacity="0.16"/>
+            <line x1="0" y1="-456" x2="0" y2="-482" stroke-width="1.5" opacity="0.98"/>
+          </g>
+
+          <!-- lower-left, -142° (main statement leaf, mirrored) -->
+          <g transform="rotate(-142)" opacity="0.74">
+            <path d="M0,0 C-19,-65 -25,-165 -17,-290 C-11,-370 -5,-422 0,-456 C5,-422 11,-370 17,-290 C25,-165 19,-65 0,0Z"
+                  fill="rgba(184,137,58,0.09)" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="0" y2="-451" stroke-width="0.75" opacity="0.82"/>
+            <path d="M16,-156 L27,-172 L16,-188" stroke-width="1.0" fill="none" opacity="0.90"/>
+            <path d="M15,-226 L26,-242 L15,-258" stroke-width="1.0" fill="none" opacity="0.84"/>
+            <path d="M14,-300 L24,-316 L14,-332" stroke-width="0.9" fill="none" opacity="0.74"/>
+            <path d="M12,-372 L20,-388 L12,-404" stroke-width="0.8" fill="none" opacity="0.62"/>
+            <path d="M-16,-178 L-26,-194 L-16,-210" stroke-width="0.9" fill="none" opacity="0.74"/>
+            <path d="M-14,-254 L-24,-270 L-14,-286" stroke-width="0.8" fill="none" opacity="0.64"/>
+            <path d="M-12,-330 L-20,-346 L-12,-362" stroke-width="0.7" fill="none" opacity="0.54"/>
+            <path d="M-17,-44 Q0,-35 17,-44" stroke-width="0.55" fill="none" opacity="0.34"/>
+            <path d="M-19,-88 Q0,-78 19,-88" stroke-width="0.50" fill="none" opacity="0.27"/>
+            <path d="M-21,-133 Q0,-123 21,-133" stroke-width="0.45" fill="none" opacity="0.21"/>
+            <path d="M-21,-178 Q0,-168 21,-178" stroke-width="0.40" fill="none" opacity="0.16"/>
+            <line x1="0" y1="-456" x2="0" y2="-482" stroke-width="1.5" opacity="0.98"/>
+          </g>
+
+          <!-- lowest front leaf, +170° (near straight down) -->
+          <g transform="rotate(170)" opacity="0.60">
+            <path d="M0,0 C-17,-58 -22,-148 -15,-260 C-9,-336 -4,-386 0,-416 C4,-386 9,-336 15,-260 C22,-148 17,-58 0,0Z"
+                  fill="rgba(184,137,58,0.08)" stroke-width="1.1"/>
+            <line x1="0" y1="0" x2="0" y2="-412" stroke-width="0.70" opacity="0.78"/>
+            <path d="M14,-152 L23,-166 L14,-180" stroke-width="0.9" fill="none" opacity="0.83"/>
+            <path d="M13,-222 L21,-236 L13,-250" stroke-width="0.9" fill="none" opacity="0.76"/>
+            <path d="M12,-295 L20,-309 L12,-323" stroke-width="0.8" fill="none" opacity="0.66"/>
+            <path d="M-13,-172 L-22,-186 L-13,-200" stroke-width="0.8" fill="none" opacity="0.68"/>
+            <path d="M-12,-250 L-20,-264 L-12,-278" stroke-width="0.7" fill="none" opacity="0.58"/>
+            <path d="M-15,-44 Q0,-36 15,-44" stroke-width="0.5" fill="none" opacity="0.28"/>
+            <path d="M-17,-88 Q0,-79 17,-88" stroke-width="0.45" fill="none" opacity="0.22"/>
+            <line x1="0" y1="-416" x2="0" y2="-438" stroke-width="1.2" opacity="0.92"/>
+          </g>
+
+          <!-- ── CENTRAL ROSETTE CORE ── -->
+          <g opacity="0.92">
+            <!-- ground shadow rings -->
+            <ellipse cx="0" cy="2" rx="60" ry="10" stroke-width="0.6" opacity="0.26" fill="none"/>
+            <ellipse cx="0" cy="2" rx="44" ry="7"  stroke-width="0.4" opacity="0.17" fill="none"/>
+            <!-- young emerging leaves -->
+            <path d="M0,2 C-10,-26 -12,-64 -7,-108 L0,-128 L7,-108 C12,-64 10,-26 0,2Z"
+                  fill="rgba(184,137,58,0.13)" stroke-width="1.0" opacity="0.90"/>
+            <line x1="0" y1="0" x2="0" y2="-124" stroke-width="0.55" opacity="0.70"/>
+            <path d="M0,2 C-8,-20 -10,-52 -6,-88 L0,-104 L6,-88 C10,-52 8,-20 0,2Z"
+                  fill="rgba(184,137,58,0.11)" stroke-width="0.9" opacity="0.82"
+                  transform="rotate(20)"/>
+            <path d="M0,2 C-7,-16 -9,-44 -5,-76 L0,-90 L5,-76 C9,-44 7,-16 0,2Z"
+                  fill="rgba(184,137,58,0.09)" stroke-width="0.8" opacity="0.76"
+                  transform="rotate(-18)"/>
+            <!-- apical bud -->
+            <circle cx="0" cy="-20" r="6"  fill="#B8893A" stroke="none" opacity="0.94"/>
+            <circle cx="0" cy="-20" r="14" fill="none" stroke-width="0.7" opacity="0.56"/>
+            <circle cx="0" cy="-20" r="28" fill="none" stroke-width="0.45" opacity="0.33"/>
+          </g>
+
         </g>
-        <g stroke="url(#goldStrokeSoft)" fill="none" stroke-width="0.6">
-          <line x1="40" y1="60" x2="40" y2="180"/>
-          <line x1="40" y1="60" x2="160" y2="60"/>
-          <line x1="560" y1="840" x2="560" y2="720"/>
-          <line x1="560" y1="840" x2="440" y2="840"/>
+
+        <!-- Botanical frame marks -->
+        <g stroke="#B8893A" fill="none" stroke-width="0.6" opacity="0.38">
+          <line x1="40" y1="56" x2="40" y2="180"/>
+          <line x1="40" y1="56" x2="164" y2="56"/>
+          <line x1="560" y1="844" x2="560" y2="720"/>
+          <line x1="560" y1="844" x2="436" y2="844"/>
         </g>
-        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#B8893A" opacity="0.75" letter-spacing="2">
-          <text x="56" y="80">N° 01 · AGAVACEAE</text>
-          <text x="56" y="98" font-size="9" fill="#F7F1E8" opacity="0.55">SECCIÓN TRANSVERSAL</text>
+
+        <!-- Scale bar -->
+        <g stroke="#B8893A" stroke-width="0.5" opacity="0.26" fill="none">
+          <line x1="476" y1="820" x2="556" y2="820"/>
+          <line x1="476" y1="815" x2="476" y2="825"/>
+          <line x1="516" y1="817" x2="516" y2="823"/>
+          <line x1="556" y1="815" x2="556" y2="825"/>
         </g>
-        <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#F7F1E8" opacity="0.4" letter-spacing="2">
-          <text x="444" y="830">EST. 2014 · MX → EU</text>
-        </g>
+
+        <!-- Botanical plate labels -->
+        <text x="56" y="78"  font-family="'IBM Plex Mono',monospace" font-size="10" fill="#B8893A" letter-spacing="2" opacity="0.88">N° 01 · AGAVACEAE</text>
+        <text x="56" y="96"  font-family="'IBM Plex Mono',monospace" font-size="9"  fill="#F7F1E8" letter-spacing="2" opacity="0.52">AGAVE ANGUSTIFOLIA</text>
+        <text x="56" y="112" font-family="'IBM Plex Mono',monospace" font-size="8"  fill="#F7F1E8" letter-spacing="1.5" opacity="0.30">Lámina I · Sección transversal</text>
+        <text x="480" y="812" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B8893A" letter-spacing="1" opacity="0.42">80 cm</text>
+        <text x="440" y="830" font-family="'IBM Plex Mono',monospace" font-size="9"  fill="#F7F1E8" letter-spacing="2" opacity="0.34">EST. 2014 · MX → EU</text>
       </svg>
 
       <div class="badge badge--a">
